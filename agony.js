@@ -44,7 +44,10 @@ const header = document.getElementById("header");
 function inject() {
     let space = document.getElementById("space");
     // let card = document.getElementByClass("box")
-    space.
+    space.insertAdjacentHTML(
+        "beforeend",
+        `<div class = "box">box</div>`
+    )
 }
 
 document.getElementById("btn").addEventListener("click", function(){
