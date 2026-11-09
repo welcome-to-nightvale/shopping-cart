@@ -40,7 +40,7 @@ document.getElementById("btn").addEventListener("click", function() {
 //inject 1 html card into container
 
 
-const header = document.getElementById("header");
+/* const header = document.getElementById("header");
 function inject() {
     let space = document.getElementById("space");
     // let card = document.getElementByClass("box")
@@ -52,4 +52,11 @@ function inject() {
 
 document.getElementById("btn").addEventListener("click", function(){
     inject();
-});
+}); */
+
+const buttons = document.querySelectorAll("button");
+buttons.forEach((button) => 
+    button.addEventListener("click", function(event) {
+        console.log(event.target.closest(".card").getAttribute("data-item"));
+    }),
+);
