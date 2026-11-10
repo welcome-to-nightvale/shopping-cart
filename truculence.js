@@ -124,12 +124,12 @@ const items = [
 let cart = {};
 let cartTotal = 0;
 
-function filterBy(tag) {
+//JS- ONLY VERSIONS
+/* function filterBy(tag) {
   let filtered = [];
   for (let item of items) {
     if (item.tags.find((t)=> t === tag) !== undefined) {
       filtered.push(item.name);
-      //console.log(item);
     }
   }
   return filtered;
@@ -163,13 +163,7 @@ function removeFromCart(item){
     cartTotal += cart[item.name].price;
     delete cart[item.name];
   }
-}
-
-/* function calcTotal(cart) {
-  let total = 0;
-  Object.values(cart).forEach((item)=> total += cart[item.name].price * cart[item.name].qty);
-  return total;
-}; */
+} 
 
 function discount(code, total) {
   if (code === "iHeartAPCS") {
@@ -181,7 +175,8 @@ function discount(code, total) {
   } else {
     return "invalid code";
   }
-}
+};
+ */
 
 /* addToCart(items[0]);
 addToCart(items[0]);
@@ -195,4 +190,34 @@ console.log(cart);
 console.log(cartTotal);
 console.log(discount("iHeartAPCS", cartTotal)) */
 
+//HTML INCLUDED
+function filterBy(tag) {
+  //let filtered = [];
+  let section = document.getElementById("section");
+  for (let item of items) {
+    if (item.tags.find((t)=> t === tag) !== undefined) {
+      //filtered.push(item.name);
+      section.remove();
+      document.insertAdjacentHTML("afterbegin", `<section id = "section"></section>`)
+      let section = document.getElementById("section");
+      section.insertAdjacentHTML(
+        "afterbegin",
+        `<div class = card>
+          <h2>${item.name}</h2>
+          <image src = "" alt = ""></image>
+          <p>${item.price}</p>
+          <button>add to cart</button>
+        </div>`
+      )
 
+    }
+  }
+  //return filtered;
+};
+
+const filter = document.getElementById("#filter");
+document.addEventListener("click", function() {
+  console.log("clicked");
+  filterBy("decorative");
+  // console.log(event.target.closest(".card").getAttribute("data-item"));
+});
