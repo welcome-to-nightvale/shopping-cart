@@ -193,18 +193,19 @@ console.log(discount("iHeartAPCS", cartTotal)) */
 //HTML INCLUDED
 function filterBy(tag) {
   //let filtered = [];
-  let section = document.getElementById("section");
+  let section = document.getElementById("cards");
+  section.remove();
+      content = document.getElementById("content");
+      content.insertAdjacentHTML("beforeend", `<section id = "cards"></section>`)
   for (let item of items) {
     if (item.tags.find((t)=> t === tag) !== undefined) {
       //filtered.push(item.name);
-      section.remove();
-      document.insertAdjacentHTML("afterbegin", `<section id = "section"></section>`)
-      let section = document.getElementById("section");
-      section.insertAdjacentHTML(
+      let sectionn = document.getElementById("cards");
+      sectionn.insertAdjacentHTML(
         "afterbegin",
         `<div class = card>
           <h2>${item.name}</h2>
-          <image src = "" alt = ""></image>
+          <image src = "" alt = "image of ${item.name}"></image>
           <p>${item.price}</p>
           <button>add to cart</button>
         </div>`

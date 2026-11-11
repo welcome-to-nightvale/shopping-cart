@@ -4,6 +4,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Slabo+27px&display=swap" rel="stylesheet">
 </head>
     <body>
         <!-- <h1 id = "color">explosiom</h1>
@@ -29,32 +32,73 @@
                 <button>add to cart</button>
             </div>
         </div> -->
-        <button id = "filter">filter</button>
-        <section id = section>
-            <div class = "card" data-item = "jar">
-                <h2>jar</h2>
-                <img src="" alt="image">
-                <p>$1.00</p>
-                <button>add to cart</button>
+        <div class = navigation>
+            <button class = menu-button>
+                <img src="images/home-icon.png" alt="home">
+            </button>
+            <button class = menu-button>
+                <img src="images/cart-icon.png" alt="home">
+            </button>
+        </div>
+        <section id = content>
+            <div class = header>
+                <h1>estate liquidation</h1>
             </div>
-            <div class = "card" data-item = "papercrane">
-                <h2>paper crane</h2>
-                <img src="" alt="image">
-                <p>$1.00</p>
-                <button>add to cart</button>
+            <div class = filters>
+                <button id = filter>filter</button>
             </div>
-            <div class = "card" data-item = "waspnest">
-                <h2>wasps' nest</h2>
-                <img src="" alt="image">
-                <p>$1.00</p>
-                <button>add to cart</button>
-            </div>
-            <div class = "card" data-item = "fishlamp">
-                <h2>fish lamp</h2>
-                <img src="" alt="image">
-                <p>$1.00</p>
-                <button>add to cart</button>
-            </div>
+            <section id = cards>
+                <div class = card data-item = jar>
+                    <h2>jar</h2>
+                    <image class = card-image src = "images/jar.png" alt = "jar image"></image>
+                    <p>$0.00</p>
+                    <button class = "addToCart">add to cart</button>
+                </div>
+                <div class = card data-item = crane>
+                    <h2>paper crane</h2>
+                    <image class = card-image src = "images/crane.png" alt = "paper crane image"></image>
+                    <p>$0.00</p>
+                    <button class = "addToCart">add to cart</button>
+                </div>
+                <div class = card data-item = wasp>
+                    <h2>wasps' nest</h2>
+                    <image class = card-image src = "images/nest.png" alt = "wasp nest image"></image>
+                    <p>$0.00</p>
+                    <button class = "addToCart">add to cart</button>
+                </div>
+                <div class = card data-item = fishlamp>
+                    <h2>fish lamp</h2>
+                    <image class = card-image src = "images/lamp.png" alt = "fish lamp image"></image>
+                    <p>$0.00</p>
+                    <button class = "addToCart">add to cart</button>
+            </section>
+            <!-- <button id = "filter">filter</button>
+            <section id = section>
+                <div class = "card" data-item = "jar">
+                    <h2>jar</h2>
+                    <img src="" alt="image">
+                    <p>$1.00</p>
+                    <button>add to cart</button>
+                </div>
+                <div class = "card" data-item = "papercrane">
+                    <h2>paper crane</h2>
+                    <img src="" alt="image">
+                    <p>$1.00</p>
+                    <button>add to cart</button>
+                </div>
+                <div class = "card" data-item = "waspnest">
+                    <h2>wasps' nest</h2>
+                    <img src="" alt="image">
+                    <p>$1.00</p>
+                    <button>add to cart</button>
+                </div>
+                <div class = "card" data-item = "fishlamp">
+                    <h2>fish lamp</h2>
+                    <img src="" alt="image">
+                    <p>$1.00</p>
+                    <button>add to cart</button>
+                </div>
+            </section> -->
         </section>
 
         <script src= "truculence.js"></script>
