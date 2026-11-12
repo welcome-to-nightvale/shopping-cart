@@ -210,7 +210,7 @@ console.log(cart);
 console.log(cartTotal);
 console.log(discount("iHeartAPCS", cartTotal)) */
 
-//HTML INCLUDED
+//HTML VERSIONs
 /* function filterBy(tag) {
   let section = document.getElementById("cards");
   section.remove();
@@ -233,9 +233,7 @@ console.log(discount("iHeartAPCS", cartTotal)) */
 }; */
 function filterBy(tag) {
     let section = document.getElementById("cards");
-    //CSS.escape("card");
     displayed = section.querySelectorAll("div");
-    console.log(displayed);
     for (let card of displayed) {
       for (let item of items) {
         if (item.id === card.getAttribute("data-item")) {
@@ -261,21 +259,39 @@ function displayItems() {
         <image class = "card-image" src = "images/${item.id}.png" alt = "image of ${item.name}"></image>
         <p>${item.desc}</p>
         <p>$${item.price}</p>
-        <button>add to cart</button>
+        <button class = "addToCart" >add to cart</button>
       </div>`
     )
+  }
+};
+
+function addToCart(item) {
+  if (item.stock > 0) {
+    if (cart[item.name]) {
+      cart[item.name].qty ++;
+      cart[item.name].stock --;
+      cartTotal += cart[item.name].price;
+    } else {
+      cart[item.name] = item;
+      cart[item.name].qty = 1;
+      cart[item.name].stock --;
+      cartTotal += cart[item.name].price;
+    }
+  } else {
+    console.log("item not in stock");
   }
 };
 
 const filter = document.getElementById("filter");
 filter.addEventListener("click", function() {
   console.log("clicked filter");
-  filterBy("companion");
+  filterBy("decorative");
   // console.log(event.target.closest(".card").getAttribute("data-item"));
 });
 
-const shop = document.getElementById("shop")
+const shop = document.getElementById("shop");
 shop.addEventListener("click", function() {
   console.log("clicked shop");
   displayItems();
 })
+

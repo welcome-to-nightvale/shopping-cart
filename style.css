@@ -48,6 +48,9 @@ body {
     background: none;
     border-style: none
 }
+.menu-button:hover {
+    cursor: pointer;
+}
 .menu-button img{
     width: 70%;
 }
@@ -102,13 +105,26 @@ body {
     /* justify-content: center; */
     align-items: center;
     width: 30rem;
-    height: 40rem;
+    height: 45rem;
     background-color: rgb(255, 255, 255);
     margin: 2rem;
     border-radius: 0.6rem;
     box-shadow: 0px 2px 20px #83645d;; 
 }
 
+.card h2 {
+    margin: 1rem;
+    font-size: 15px;
+    font-weight: 600;
+    color:#63382A;
+}
+.card p {
+    margin: 0.5rem 10rem;
+    font-size: 15px;
+    text-align: center;
+}
+
 .card-image {
     width: 100%;
+    margin: 0rem 1rem;
 }
