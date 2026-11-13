@@ -259,9 +259,15 @@ function displayItems() {
         <image class = "card-image" src = "images/${item.id}.png" alt = "image of ${item.name}"></image>
         <p>${item.desc}</p>
         <p>$${item.price}</p>
-        <button class = "addToCart" >add to cart</button>
+        <button class = "add" >add to cart</button>
       </div>`
     )
+  const buttons = document.querySelectorAll(".add");
+buttons.forEach((button) => 
+    button.addEventListener("click", function(event) {
+        console.log(event.target.closest(".card").getAttribute("data-item"));
+    }),
+);
   }
 };
 
@@ -293,5 +299,24 @@ const shop = document.getElementById("shop");
 shop.addEventListener("click", function() {
   console.log("clicked shop");
   displayItems();
-})
+});
 
+//let section = document.getElementById("cards")
+
+/* const buttons = document.querySelectorAll("addToCart");
+buttons.forEach((button) => 
+    button.addEventListener("click", function(event) {
+      console.log("clicked add");
+      console.log(event.target.closest(".card").getAttribute("data-item"));
+    }),
+); */
+
+//const button = document.getElementById("")
+
+
+/* const buttons = document.querySelectorAll(".add");
+buttons.forEach((button) => 
+    button.addEventListener("click", function(event) {
+        console.log(event.target.closest(".card").getAttribute("data-item"));
+    }),
+); */
