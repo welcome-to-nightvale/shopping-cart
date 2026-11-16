@@ -266,6 +266,7 @@ function displayItems() {
 buttons.forEach((button) => 
     button.addEventListener("click", function(event) {
         console.log(event.target.closest(".card").getAttribute("data-item"));
+        let 
     }),
 );
   }
@@ -301,22 +302,15 @@ shop.addEventListener("click", function() {
   displayItems();
 });
 
-//let section = document.getElementById("cards")
-
-/* const buttons = document.querySelectorAll("addToCart");
-buttons.forEach((button) => 
-    button.addEventListener("click", function(event) {
-      console.log("clicked add");
-      console.log(event.target.closest(".card").getAttribute("data-item"));
-    }),
-); */
-
-//const button = document.getElementById("")
-
-
-/* const buttons = document.querySelectorAll(".add");
-buttons.forEach((button) => 
-    button.addEventListener("click", function(event) {
-        console.log(event.target.closest(".card").getAttribute("data-item"));
-    }),
-); */
+const checkout = document.getElementById("checkout");
+checkout.addEventListener("click", function() {
+  console.log("clicked checkout");
+  const cart = document.getElementById("cart");
+  console.log(cart);
+  if (cart.style.display === "none") {
+    cart.style.display = "flex";
+  } else {
+    cart.style.display = "none";
+  }
+  cart = [];
+});

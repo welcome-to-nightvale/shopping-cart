@@ -119,7 +119,7 @@ body {
     color:#63382A;
 }
 .card p {
-    margin: 0.5rem 5rem;
+    margin: 0.5rem 2rem;
     font-size: 15px;
     text-align: center;
 }
@@ -133,7 +133,11 @@ body {
     margin: 0.5rem;
 }
 
-.cart {
-    margin-left: 9rem;
-    background-color:red;
+#cart {
+    display: none;
+    position: fixed;
+    left: 13rem;
+    top: 14rem;
+    background-color:#83645d;
+    padding: 5rem;
 }
