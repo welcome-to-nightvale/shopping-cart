@@ -307,7 +307,6 @@ shop.addEventListener("click", function() {
 const checkout = document.getElementById("checkout");
 checkout.addEventListener("click", function() {
   console.log("clicked checkout");
-  const cart = document.getElementById("cart");
   console.log(cart);
   if (cart.style.display === "none") {
     cart.style.display = "flex";
