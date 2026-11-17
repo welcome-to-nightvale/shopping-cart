@@ -105,7 +105,7 @@ body {
     /* justify-content: center; */
     align-items: center;
     width: 30rem;
-    height: 45rem;
+    height: 46rem;
     background-color: rgb(255, 255, 255);
     margin: 2rem;
     border-radius: 0.6rem;
@@ -119,9 +119,10 @@ body {
     color:#63382A;
 }
 .card p {
-    margin: 0.5rem 2rem;
+    margin: 1rem 2rem;
     font-size: 15px;
     text-align: center;
+    height:5%;
 }
 
 .card-image {
@@ -130,7 +131,7 @@ body {
 }
 
 .card button{
-    margin: 0.5rem;
+    margin: 1rem;
 }
 
 #cart {

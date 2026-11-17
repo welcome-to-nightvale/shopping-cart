@@ -262,14 +262,16 @@ function displayItems() {
         <button class = "add" >add to cart</button>
       </div>`
     )
+  };
   const buttons = document.querySelectorAll(".add");
-buttons.forEach((button) => 
+  buttons.forEach((button) => 
     button.addEventListener("click", function(event) {
-        console.log(event.target.closest(".card").getAttribute("data-item"));
-        let 
+      let ind = event.target.closest(".card").getAttribute("data-item");
+      console.log(ind);
+      addToCart(ind);
     }),
-);
-  }
+  );
+ /////// 
 };
 
 function addToCart(item) {
