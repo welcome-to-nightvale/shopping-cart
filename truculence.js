@@ -3,7 +3,7 @@ const items = [
       id: "jar",
       desc: "contains rocks",
       tags: ["decorative", "brings joy"],
-      stock: 2,
+      stock: 20,
       price: 20.00
     },
     { name: "Paper Crane",
@@ -266,25 +266,40 @@ function displayItems() {
   const buttons = document.querySelectorAll(".add");
   buttons.forEach((button) => 
     button.addEventListener("click", function(event) {
-      let ind = event.target.closest(".card").getAttribute("data-item");
-      console.log(ind);
-      addToCart(ind);
+      let dataItem = event.target.closest(".card").getAttribute("data-item");
+      //console.log(dataItem);
+      console.log(items.find((item) => item.id === dataItem));
+      addToCart(items.find((item) => item.id === dataItem));
     }),
   );
  /////// 
 };
 
 function addToCart(item) {
+  const cartBox = document.getElementById("cart")
   if (item.stock > 0) {
-    if (cart[item.name]) {
-      cart[item.name].qty ++;
-      cart[item.name].stock --;
-      cartTotal += cart[item.name].price;
+    if (cart[item.id]) {
+      cart[item.id].qty ++;
+      cart[item.id].stock --;
+      cartTotal += cart[item.id].price;
+      let entry = document.getElementById(item.id);
+      entry.remove();
+      entry = document.getElementById(item.id);
+      entry.insertAdjacentHTML(
+        "beforeend",
+        `<p>x${item.qty}</p>`
+      )
     } else {
-      cart[item.name] = item;
-      cart[item.name].qty = 1;
-      cart[item.name].stock --;
-      cartTotal += cart[item.name].price;
+      cart[item.id] = item;
+      cart[item.id].qty = 1;
+      cart[item.id].stock --;
+      cartTotal += cart[item.id].price;
+      cartBox.insertAdjacentHTML(
+        "beforeend",
+        `<div id = ${item.id}>
+          <h2>${item.name}</h2>
+        </div>`
+      );
     }
   } else {
     console.log("item not in stock");
@@ -308,10 +323,10 @@ const checkout = document.getElementById("checkout");
 checkout.addEventListener("click", function() {
   console.log("clicked checkout");
   console.log(cart);
-  if (cart.style.display === "none") {
-    cart.style.display = "flex";
+  const cartBox = document.getElementById("cart")
+  if (cartBox.style.display === "none") {
+    cartBox.style.display = "flex";
   } else {
-    cart.style.display = "none";
+    cartBox.style.display = "none";
   }
-  cart = [];
 });
