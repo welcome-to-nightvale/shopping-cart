@@ -10,7 +10,7 @@ const items = [
       id: "crane",
       desc: "Paper Crane",
       tags: ["decorative","brings joy"],
-      stock: 1,
+      stock: 5,
       price: 2.50
     },
     { name: "Wasps' nest",
@@ -66,21 +66,21 @@ const items = [
       id: "wizar",
       desc: "bugs under there",
       tags: ["for divining esoteric truths", "accessory"],
-      stock: 1,
+      stock: 5,
       price: 42.68
     },
     { name: "whiteboard magnet",
       id: "magnets",
       desc: "snail-shaped",
       tags: ["companion", "brings joy"],
-      stock: 1,
+      stock: 2,
       price: 2.00
     },
     { name: "NYC Public Transit seating",
       id: "seat",
       desc: "build your very own basement train",
       tags: ["decorative"],
-      stock: 1,
+      stock: 5,
       price: 200
     },
     { name: "Forbidden Scripture",
@@ -108,7 +108,7 @@ const items = [
       id: "cap",
       desc: "as per the suggestion of my brother.\nNo particularly notable characteristics",
       tags: ["accessory"],
-      stock: 1,
+      stock: 5,
       price: 2.50
     },
     { name: "Cockroach",
@@ -122,7 +122,7 @@ const items = [
       id: "mold",
       desc: "put this in your House put this under your Bed",
       tags: ["potentially mind controlling", "companion"],
-      stock: 1,
+      stock: 10000,
       price: 0
     },
     { name: "Big Mouth Billy Bass",
@@ -136,7 +136,7 @@ const items = [
       id: "amulet",
       desc: "put this in your House put this under your Bed",
       tags: ["potentially mind controlling", "accessory"],
-      stock: 1,
+      stock: 3,
       price: 0
     },
 ]
@@ -282,12 +282,12 @@ function addToCart(item) {
       cart[item.id].qty ++;
       cart[item.id].stock --;
       cartTotal += cart[item.id].price;
+      let entryAmt = document.getElementById(`${item.id}amt`);
       let entry = document.getElementById(item.id);
-      entry.remove();
-      entry = document.getElementById(item.id);
-      entry.insertAdjacentHTML(
-        "beforeend",
-        `<p>x${item.qty}</p>`
+      entryAmt.remove();
+      //entry.insertAdjacentHTML("beforeend", `<p id= ${item.id}amt></p>`);
+      entryAmt = document.getElementById(`${item.id}amt`);
+      entry.insertAdjacentHTML("beforeend", `<p id= ${item.id}amt>x${item.qty}</p>`
       )
     } else {
       cart[item.id] = item;
@@ -298,6 +298,7 @@ function addToCart(item) {
         "beforeend",
         `<div id = ${item.id}>
           <h2>${item.name}</h2>
+          <p id = ${item.id}amt >x${item.qty}</p>
         </div>`
       );
     }
@@ -324,7 +325,7 @@ checkout.addEventListener("click", function() {
   console.log("clicked checkout");
   console.log(cart);
   const cartBox = document.getElementById("cart")
-  if (cartBox.style.display === "none") {
+  if (cartBox.style.display !== "flex") {
     cartBox.style.display = "flex";
   } else {
     cartBox.style.display = "none";
