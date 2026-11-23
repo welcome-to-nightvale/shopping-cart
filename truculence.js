@@ -81,7 +81,7 @@ const items = [
       desc: "build your very own basement train",
       tags: ["decorative"],
       stock: 5,
-      price: 200
+      price: 200.00
     },
     { name: "Forbidden Scripture",
       id: "notebook",
@@ -116,14 +116,14 @@ const items = [
       desc: "Named gertrude",
       tags: ["not for sale", "brings joy", "companion"],
       stock: 1,
-      price: 0
+      price: 0.00
     },
     { name: "Mold that makes you love Mold",
       id: "mold",
       desc: "put this in your House put this under your Bed",
       tags: ["potentially mind controlling", "companion"],
       stock: 10000,
-      price: 0
+      price: 0.00
     },
     { name: "Big Mouth Billy Bass",
       id: "billy",
@@ -137,7 +137,7 @@ const items = [
       desc: "put this in your House put this under your Bed",
       tags: ["potentially mind controlling", "accessory"],
       stock: 3,
-      price: 0
+      price: 0.00
     },
 ]
 
@@ -258,7 +258,7 @@ function displayItems() {
         <h2>${item.name}</h2>
         <image class = "card-image" src = "images/${item.id}.png" alt = "image of ${item.name}"></image>
         <p>${item.desc}</p>
-        <p>$${item.price}</p>
+        <p>$${(item.price).toFixed(2)}</p>
         <button class = "add" >add to cart</button>
       </div>`
     )
@@ -286,7 +286,7 @@ function addToCart(item) {
       let entry = document.getElementById(item.id);
       entryAmt.remove();
       //entry.insertAdjacentHTML("beforeend", `<p id= ${item.id}amt></p>`);
-      entryAmt = document.getElementById(`${item.id}amt`);
+      //entryAmt = document.getElementById(`${item.id}amt`);
       entry.insertAdjacentHTML("beforeend", `<p id= ${item.id}amt>x${item.qty}</p>`
       )
     } else {
@@ -296,7 +296,7 @@ function addToCart(item) {
       cartTotal += cart[item.id].price;
       cartBox.insertAdjacentHTML(
         "beforeend",
-        `<div id = ${item.id}>
+        `<div id = ${item.id} class = "entry">
           <h2>${item.name}</h2>
           <p id = ${item.id}amt >x${item.qty}</p>
         </div>`

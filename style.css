@@ -136,10 +136,35 @@ body {
 
 #cart {
     display: none;
+    flex-direction: column;
+    align-items: center;
     position: fixed;
     left: 13rem;
     top: 14rem;
     background-color:#83645d;
     width: 40rem;
-    padding: 3rem;
+    padding: 2rem;
+    border-radius: 0.4rem;
+}
+
+.entry {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    padding: 0.5rem;
+    margin: -0.1rem;
+    border-style: solid none solid none;
+    border-width: 0.2rem;
+    border-color: #684738;
+}
+
+.entry h2 {
+    font-size: 15px;
+    color:#35140f;
+}
+
+.entry p {
+    font-size: 15px;
+    font-weight: 600;
+    color:#c5ac87;
 }
