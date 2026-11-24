@@ -143,8 +143,23 @@ body {
     top: 14rem;
     background-color:#83645d;
     width: 40rem;
-    padding: 2rem;
+    padding: 1rem 1rem 3rem 1rem;
     border-radius: 0.4rem;
+}
+
+.cart-heading {
+    font-size: 15px;
+    color:#35140f;
+    margin: 1rem;
+}
+
+#total {
+    font-size: 15px;
+    color:#684738;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    font-weight: 600;
 }
 
 .entry {

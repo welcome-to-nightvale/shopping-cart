@@ -276,7 +276,7 @@ function displayItems() {
 };
 
 function addToCart(item) {
-  const cartBox = document.getElementById("cart")
+  const entries = document.getElementById("entries")
   if (item.stock > 0) {
     if (cart[item.id]) {
       cart[item.id].qty ++;
@@ -285,8 +285,6 @@ function addToCart(item) {
       let entryAmt = document.getElementById(`${item.id}amt`);
       let entry = document.getElementById(item.id);
       entryAmt.remove();
-      //entry.insertAdjacentHTML("beforeend", `<p id= ${item.id}amt></p>`);
-      //entryAmt = document.getElementById(`${item.id}amt`);
       entry.insertAdjacentHTML("beforeend", `<p id= ${item.id}amt>x${item.qty}</p>`
       )
     } else {
@@ -294,7 +292,7 @@ function addToCart(item) {
       cart[item.id].qty = 1;
       cart[item.id].stock --;
       cartTotal += cart[item.id].price;
-      cartBox.insertAdjacentHTML(
+      entries.insertAdjacentHTML(
         "beforeend",
         `<div id = ${item.id} class = "entry">
           <h2>${item.name}</h2>
@@ -305,6 +303,10 @@ function addToCart(item) {
   } else {
     console.log("item not in stock");
   }
+  let total = document.getElementById("total");
+  let totalPrice = document.getElementById("total-price");
+  totalPrice.remove();
+  total.insertAdjacentHTML("beforeend", `<p>$${(cartTotal).toFixed(2)}</p>`);
 };
 
 const filter = document.getElementById("filter");
