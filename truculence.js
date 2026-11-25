@@ -86,7 +86,7 @@ const items = [
     { name: "Forbidden Scripture",
       id: "notebook",
       desc: "remnants of a peculiar elementary schooler's writing journal. \nMarble notebook",
-      tags: ["for divining esoteric truths", "brings misery", "not for sale"],
+      tags: ["for divining esoteric truths", "brings misery"],
       stock: 1,
       price: 15.01
     },
@@ -114,7 +114,7 @@ const items = [
     { name: "Cockroach",
       id: "cockroach",
       desc: "Named gertrude",
-      tags: ["not for sale", "brings joy", "companion"],
+      tags: ["brings joy", "companion"],
       stock: 1,
       price: 0.00
     },
@@ -232,6 +232,7 @@ console.log(discount("iHeartAPCS", cartTotal)) */
   }
 }; */
 function filterBy(tag) {
+    displayItems();
     let section = document.getElementById("cards");
     displayed = section.querySelectorAll("div");
     for (let card of displayed) {
@@ -267,9 +268,9 @@ function displayItems() {
   buttons.forEach((button) => 
     button.addEventListener("click", function(event) {
       let dataItem = event.target.closest(".card").getAttribute("data-item");
-      //console.log(dataItem);
-      console.log(items.find((item) => item.id === dataItem));
-      addToCart(items.find((item) => item.id === dataItem));
+      let object = items.find((item) => item.id === dataItem);
+      console.log(object);
+      addToCart(object);
     }),
   );
  /////// 
@@ -302,19 +303,45 @@ function addToCart(item) {
     }
   } else {
     console.log("item not in stock");
+    
+
   }
   let total = document.getElementById("total");
   let totalPrice = document.getElementById("total-price");
   totalPrice.remove();
-  total.insertAdjacentHTML("beforeend", `<p>$${(cartTotal).toFixed(2)}</p>`);
+  total.insertAdjacentHTML("beforeend", `<p id = "total-price">$${(cartTotal).toFixed(2)}</p>`);
+};
+
+function discount(code) {
+  if (code === "iHeartAPCS") {
+    cartTotal = (cartTotal * 0.50).toFixed(2);
+  } else if (code === "discountCode") {
+    cartTotal = (cartTotal * 0.80).toFixed(2);
+  } else if (code === "darknessAndDespair") {
+    cartTotal = (cartTotal * 0.70).toFixed(2);
+  } else {
+    console.log("invalid code");
+  }
+  console.log(cartTotal);
+  let total = document.getElementById("total");
+  let totalPrice = document.getElementById("total-price");
+  totalPrice.remove();
+  total.insertAdjacentHTML("beforeend", `<p id = "total-price">$${cartTotal}</p>`);
 };
 
 const filter = document.getElementById("filter");
-filter.addEventListener("click", function() {
-  console.log("clicked filter");
-  filterBy("decorative");
-  // console.log(event.target.closest(".card").getAttribute("data-item"));
+filter.addEventListener("change", function() {
+  //console.log("clicked filter");
+  console.log(filter.value);
+  filterBy(filter.value);
 });
+
+/* const home = document.getElementById("home");
+shop.addEventListener("click", function() {
+  console.log("clicked home");
+  let section = document.getElementById("cards");
+  section.remove();
+}); */
 
 const shop = document.getElementById("shop");
 shop.addEventListener("click", function() {
@@ -333,3 +360,10 @@ checkout.addEventListener("click", function() {
     cartBox.style.display = "none";
   }
 });
+
+const checkoutForReal = document.getElementById("checkout-btn");
+checkoutForReal.addEventListener("click", function() {
+  console.log("clicked real checkout");
+  let discountCode = document.getElementById("discount-code").value;
+  discount(discountCode);
+})

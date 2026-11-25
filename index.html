@@ -33,14 +33,14 @@
             </div>
         </div> -->
         <div class = navigation>
-            <button class = menu-button id = home>
+            <!-- <button class = menu-button id = home>
                 <img src="images/home-icon.png" alt="home">
-            </button>
+            </button> -->
             <button class = menu-button id = shop>
                 <img src="images/cart-icon.png" alt="shop">
             </button>
             <button class = menu-button id = checkout>
-                <p>checkout</p>
+                <img src="images/checkout-icon.png" alt="open checkout">
             </button>
         </div>
         <section id = content>
@@ -48,16 +48,33 @@
                 <h1>estate liquidation</h1>
             </div>
             <div class = filters>
-                <button id = filter>filter</button>
+                <!-- <button id = filter>filter</button> -->
+                <select id="filter">
+                    <option value="placeholder">Filter by...</option>
+                    <option value="decorative">decorative</option>
+                    <option value="brings joy">brings joy</option>
+                    <option value="brings misery">brings misery</option>
+                    <option value="potentially mind controlling">potentially mind controlling</option>
+                    <option value="companion">companion</option>
+                    <option value="for divining esoteric truths">for divining esoteric truths</option>
+                    <option value="The Vast">The Vast</option>
+                    <option value="accessory">accessory</option>
+                </select>
             </div>
-            <section id = cards></section>
+            <section id = cards>Nothing here yet...</section>
             <div id = "cart">
                 <h2 class = cart-heading>Cart</h2>
                 <div id = entries></div>
                 <div id = total>
                     <h2>Total:</h2>
-                    <p id="total-price"></p>
+                    <p id="total-price">$0.00</p>
                 </div>
+                <form action="" method= get class = form>
+                    <div class = form>
+                        <input type="text" placeholder="Enter a discount code" id="discount-code"></input>
+                        <button id = checkout-btn type = reset>Checkout</button>
+                    </div>
+                </form>
             </div>
         </section>
         <script src= "truculence.js"></script>
