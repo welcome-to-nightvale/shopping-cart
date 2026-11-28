@@ -85,7 +85,7 @@ const items = [
     },
     { name: "Forbidden Scripture",
       id: "notebook",
-      desc: "remnants of a peculiar elementary schooler's writing journal. \nMarble notebook",
+      desc: "remnants of a peculiar Marble notebook",
       tags: ["for divining esoteric truths", "brings misery"],
       stock: 1,
       price: 15.01
@@ -106,7 +106,7 @@ const items = [
     },
     { name: "Hat",
       id: "cap",
-      desc: "as per the suggestion of my brother.\nNo particularly notable characteristics",
+      desc: "No particularly notable characteristics",
       tags: ["accessory"],
       stock: 5,
       price: 2.50
